@@ -8,21 +8,21 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.zarisa.bankaccountmanagement.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/createAccountFragment"
         android:name="com.zarisa.bankaccountmanagement.CreateAccountFragment"
-        android:label="fragment_create_account"
+        android:label="Create Account"
         tools:layout="@layout/fragment_create_account" />
     <fragment
         android:id="@+id/showAccountsFragment"
         android:name="com.zarisa.bankaccountmanagement.ShowAccountsFragment"
-        android:label="fragment_show_accounts"
+        android:label="Show Accounts"
         tools:layout="@layout/fragment_show_accounts" />
     <fragment
         android:id="@+id/selectAccountFragment"
         android:name="com.zarisa.bankaccountmanagement.SelectAccountFragment"
-        android:label="fragment_select_account"
+        android:label="Select Account"
         tools:layout="@layout/fragment_select_account" />
 </navigation>
