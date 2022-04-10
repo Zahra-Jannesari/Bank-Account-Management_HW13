@@ -13,18 +13,14 @@
 
     <color name="Apple">#65ac47</color>
     <color name="Bud_Green">#7db05c</color>
+    <color name="Morning_Blue">#90a190</color>
     <color name="American_Blue">#3d316b</color>
     <color name="Old_Lavende">#786c7f</color>
     <color name="Light_Pastel_Purple">#b8a8d0</color>
     <color name="Lavender_Gray">#c7c3da</color>
-    <color name="Morning_Blue">#90a190</color>
     <color name="Khaki">#e0de8f</color>
-    <color name="Pale_Spring_Bud">#e0e6bb</color>
     <color name="Isabelline">#f2f6eb</color>
-
-
-
-
+    <color name="Pale_Spring_Bud">#e0e6bb</color>
 
 
 </resources>
