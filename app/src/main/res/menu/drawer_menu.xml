@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/profileFragment"
+            android:title="Profile" />
+        <item
+            android:id="@+id/createAccountFragment"
+            android:title="Create Accounts" />
+        <item
+            android:id="@+id/showAccountsFragment"
+            android:title="Accounts" />
+        <item
+            android:id="@+id/selectAccountFragment"
+            android:title="Select Account" />
+        <item
+            android:id="@+id/deleteAllAccounts"
+            android:title="Delete All" />
+    </group>
+</menu>
