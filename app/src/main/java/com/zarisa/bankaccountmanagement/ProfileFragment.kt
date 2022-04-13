@@ -53,9 +53,21 @@ class ProfileFragment : Fragment() {
     private fun saveEditTextsData() {
         if(validateData()) {
             editTime=false
+            saveData()
             findNavController().navigate(R.id.action_profileFragment_to_viewProfileFragment)
         }else
             Toast.makeText(requireContext(),"لطفا تمامی اطلاعات را بطور صحیح تکمیل کنید.",Toast.LENGTH_SHORT).show()
+    }
+
+    private fun saveData() {
+        val editor = profileSharePref.edit()
+        editor.putString(userName,binding.EditTextUserName.text.toString())
+        editor.putString(lastName,binding.EditTextUserLastname.text.toString())
+        editor.putString(father,binding.EditTextUserFatherName.text.toString())
+        editor.putInt(zipCode,binding.EditTextUserZipCode.text.toString().toInt())
+        editor.putInt(phoneNumber,binding.EditTextUserPhoneNumber.text.toString().toInt())
+        editor?.apply()
+        numberOfUserAccounts=binding.EditTextUserAccountNumber.text.toString().toInt()
     }
 
     private fun validateData(): Boolean {
@@ -116,8 +128,11 @@ class ProfileFragment : Fragment() {
         binding.EditTextUserName.setText(profileSharePref.getString(userName,""))
         binding.EditTextUserLastname.setText(profileSharePref.getString(lastName,""))
         binding.EditTextUserFatherName.setText(profileSharePref.getString(father,""))
-        binding.EditTextUserZipCode.setText(profileSharePref.getString(zipCode,""))
-        binding.EditTextUserPhoneNumber.setText(profileSharePref.getString(phoneNumber,""))
+        profileSharePref.getInt(zipCode,0).let { if (it!=0)
+            binding.EditTextUserZipCode.setText(it)
+        }
+        profileSharePref.getInt(phoneNumber,0).let { if (it!=0)
+            binding.EditTextUserPhoneNumber.setText(it)}
         if(numberOfUserAccounts>0)
             binding.EditTextUserAccountNumber.setText(numberOfUserAccounts)
     }
