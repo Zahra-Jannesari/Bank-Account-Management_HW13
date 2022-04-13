@@ -3,7 +3,7 @@ package com.zarisa.bankaccountmanagement.data_base
 import androidx.room.*
 
 @Dao
-interface QuestionDao {
+interface AccountDao {
     @Query("SELECT * FROM Account")
     fun getAll(): List<Account>
     @Query("SELECT * FROM Account where cardNumber=:cardNumber")
