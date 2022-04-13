@@ -52,7 +52,7 @@ class ViewProfileFragment : Fragment() {
         binding.EditTextUserFatherName.setText(profileSharePref.getString(father,""))
         binding.EditTextUserZipCode.setText(profileSharePref.getString(zipCode,""))
         binding.EditTextUserPhoneNumber.setText(profileSharePref.getString(phoneNumber,""))
-        binding.EditTextUserAccountNumber.setText(numberOfUserAccounts.toString())
+        binding.EditTextUserAccountNumber.setText(profileSharePref.getString(accountNumber,""))
     }
 
 

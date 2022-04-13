@@ -22,5 +22,4 @@ object Repository {
     fun insertAccount(account: UserAccount){
         AccountDao?.insert(account)
     }
-
 }

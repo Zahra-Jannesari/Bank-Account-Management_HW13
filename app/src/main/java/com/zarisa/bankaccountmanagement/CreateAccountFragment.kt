@@ -1,5 +1,7 @@
 package com.zarisa.bankaccountmanagement
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +17,12 @@ import com.zarisa.bankaccountmanagement.databinding.FragmentCreateAccountBinding
 
 class CreateAccountFragment : Fragment() {
     private lateinit var binding: FragmentCreateAccountBinding
+    private val profileSharePref: SharedPreferences by lazy {
+        requireActivity().getSharedPreferences(
+            "user Information",
+            Context.MODE_PRIVATE
+        )
+    }
     private val viewModel: SharedViewModel by activityViewModels()
     var i = 1
     override fun onCreateView(
@@ -27,13 +35,14 @@ class CreateAccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.textViewRemainAccount.text = "تعداد حساب ثبت نشده:${numberOfUserAccounts}"
+        viewModel.numberOfUserAccounts=profileSharePref.getString(accountNumber,"0")?.toInt()
+        binding.textViewRemainAccount.text = "تعداد حساب ثبت نشده:${viewModel.numberOfUserAccounts}"
         binding.buttonSaveChange.setOnClickListener { saveData() }
     }
 
     private fun saveData() {
         if (validateData()) {
-            var remainedAccount = numberOfUserAccounts - i
+            var remainedAccount = viewModel.numberOfUserAccounts?.minus(i)
             binding.textViewRemainAccount.text = "تعداد حساب ثبت نشده:${remainedAccount}"
             viewModel.addAccount(
                 binding.EditTextCardNumber.text.toString().toInt(),

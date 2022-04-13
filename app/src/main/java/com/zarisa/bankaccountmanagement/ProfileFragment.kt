@@ -17,7 +17,7 @@ const val father = "fatherName"
 const val zipCode = "zipCode"
 const val phoneNumber = "phone"
 const val accountNumber="account"
-var numberOfUserAccounts: Int = 0
+
 var editTime = false
 
 class ProfileFragment : Fragment() {
@@ -80,7 +80,6 @@ class ProfileFragment : Fragment() {
         editor.putString(phoneNumber, binding.EditTextUserPhoneNumber.text.toString())
         editor.putString(accountNumber,binding.EditTextUserAccountNumber.text.toString())
         editor?.apply()
-        numberOfUserAccounts = binding.EditTextUserAccountNumber.text.toString().toInt()
     }
 
     private fun validateData(): Boolean {
