@@ -33,5 +33,9 @@
         android:id="@+id/viewProfileFragment"
         android:name="com.zarisa.bankaccountmanagement.ViewProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_view_profile" />
+        tools:layout="@layout/fragment_view_profile" >
+        <action
+            android:id="@+id/action_viewProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>
