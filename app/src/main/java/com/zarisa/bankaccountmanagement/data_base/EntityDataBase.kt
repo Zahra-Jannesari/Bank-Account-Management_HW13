@@ -1,12 +1,11 @@
-package com.zarisa.bankaccountmanagement
+package com.zarisa.bankaccountmanagement.data_base
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
 data class Account(
-    @PrimaryKey val accountNumber: Int,
+    @PrimaryKey val cardNumber: Int,
     val type: String,
-    val cardNumber: Int,
     val credit: Int
 )
