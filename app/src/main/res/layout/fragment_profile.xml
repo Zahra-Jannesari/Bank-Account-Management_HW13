@@ -74,7 +74,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام">
+                android:hint="نام*">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/EditText_userName"
@@ -87,7 +87,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام خانوادگی">
+                android:hint="نام خانوادگی*">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/EditText_userLastname"
@@ -100,7 +100,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام پدر">
+                android:hint="نام پدر*">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/EditText_userFatherName"
@@ -114,12 +114,13 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="کد پستی">
+                android:hint="کد پستی*">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/EditText_userZipCode"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,12 +128,13 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="شماره تلفن">
+                android:hint="شماره تلفن*">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/EditText_userPhoneNumber"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -140,12 +142,13 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="تعداد حساب">
+                android:hint="تعداد حساب*">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/EditText_userAccountNumber"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
