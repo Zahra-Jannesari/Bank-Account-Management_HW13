@@ -37,7 +37,7 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        putDataInEditTexts()
+//        putDataInEditTexts()
         initViews()
     }
 
@@ -64,14 +64,14 @@ class ProfileFragment : Fragment() {
         editor.putString(userName,binding.EditTextUserName.text.toString())
         editor.putString(lastName,binding.EditTextUserLastname.text.toString())
         editor.putString(father,binding.EditTextUserFatherName.text.toString())
-        editor.putInt(zipCode,binding.EditTextUserZipCode.text.toString().toInt())
-        editor.putInt(phoneNumber,binding.EditTextUserPhoneNumber.text.toString().toInt())
+        editor.putString(zipCode,binding.EditTextUserZipCode.text.toString())
+        editor.putString(phoneNumber,binding.EditTextUserPhoneNumber.text.toString())
         editor?.apply()
         numberOfUserAccounts=binding.EditTextUserAccountNumber.text.toString().toInt()
     }
 
     private fun validateData(): Boolean {
-        var areAllDataValid:Boolean =true
+        var areAllDataValid =true
         binding.EditTextUserName.let {
             if (it.text.isNullOrBlank()){
                 areAllDataValid=false
@@ -124,16 +124,13 @@ class ProfileFragment : Fragment() {
         return areAllDataValid
     }
 
-    private fun putDataInEditTexts() {
-        binding.EditTextUserName.setText(profileSharePref.getString(userName,""))
-        binding.EditTextUserLastname.setText(profileSharePref.getString(lastName,""))
-        binding.EditTextUserFatherName.setText(profileSharePref.getString(father,""))
-        profileSharePref.getInt(zipCode,0).let { if (it!=0)
-            binding.EditTextUserZipCode.setText(it)
-        }
-        profileSharePref.getInt(phoneNumber,0).let { if (it!=0)
-            binding.EditTextUserPhoneNumber.setText(it)}
-        if(numberOfUserAccounts>0)
-            binding.EditTextUserAccountNumber.setText(numberOfUserAccounts)
-    }
+//    private fun putDataInEditTexts() {
+//        binding.EditTextUserName.setText(profileSharePref.getString(userName,""))
+//        binding.EditTextUserLastname.setText(profileSharePref.getString(lastName,""))
+//        binding.EditTextUserFatherName.setText(profileSharePref.getString(father,""))
+//        binding.EditTextUserZipCode.setText(profileSharePref.getString(zipCode,""))
+//        binding.EditTextUserPhoneNumber.setText(profileSharePref.getString(phoneNumber,""))
+//        if(numberOfUserAccounts>0)
+//            binding.EditTextUserAccountNumber.setText(numberOfUserAccounts)
+//    }
 }

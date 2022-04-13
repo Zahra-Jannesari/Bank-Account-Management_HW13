@@ -80,11 +80,12 @@
             android:layout_height="0dp"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/outlinedButton"
+            app:layout_constraintBottom_toTopOf="@+id/button_saveChange"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
             <TextView
+                android:id="@+id/textView_remainAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="تعداد حساب ثبت نشده:1" />
@@ -131,7 +132,7 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/outlinedButton"
+            android:id="@+id/button_saveChange"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

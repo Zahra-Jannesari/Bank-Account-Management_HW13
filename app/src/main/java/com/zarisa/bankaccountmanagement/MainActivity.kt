@@ -2,15 +2,10 @@ package com.zarisa.bankaccountmanagement
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.zarisa.bankaccountmanagement.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +32,17 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+//        binding.navView.setNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.deleteAllAccounts -> {
+//
+//                    true
+//                }
+//            }
+//            NavigationUI.onNavDestinationSelected(it, navController)
+//            drawerLayout.closeDrawer(GravityCompat.START)
+//            true
+//        }
     }
 // I will enable menu if i needed
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {
