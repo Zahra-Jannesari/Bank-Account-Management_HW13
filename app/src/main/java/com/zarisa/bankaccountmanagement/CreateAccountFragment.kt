@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
 import com.zarisa.bankaccountmanagement.data_base.UserAccount
@@ -26,22 +27,52 @@ class CreateAccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.textViewRemainAccount.text = "تعداد حساب ثبت نشده:${numberOfUserAccounts}"
         binding.buttonSaveChange.setOnClickListener { saveData() }
-
     }
 
     private fun saveData() {
-//        if (validateData()) {
-            binding.textViewRemainAccount.text = "تعداد حساب ثبت نشده:${numberOfUserAccounts - i}"
+        if (validateData()) {
+            var remainedAccount = numberOfUserAccounts - i
+            binding.textViewRemainAccount.text = "تعداد حساب ثبت نشده:${remainedAccount}"
             viewModel.addAccount(
                 binding.EditTextCardNumber.text.toString().toInt(),
                 binding.EditTextAccountType.text.toString(),
                 binding.EditTextCredit.text.toString().toInt()
             )
-//        }
+            if (remainedAccount == 0) {
+                binding.buttonSaveChange.isEnabled = false
+                return
+            }
+            i++
+        } else
+            Toast.makeText(
+                requireContext(),
+                "لطفا تمامی اطلاعات را بطور صحیح تکمیل کنید.",
+                Toast.LENGTH_SHORT
+            ).show()
     }
 
     private fun validateData(): Boolean {
-        TODO("Not yet implemented")
+        var areAllDataValid = true
+        binding.EditTextCredit.let {
+            if (it.text.isNullOrBlank()) {
+                areAllDataValid = false
+                it.error = "تکمیل فیلد اجباری است!"
+            }
+        }
+        binding.EditTextAccountType.let {
+            if (it.text.isNullOrBlank()) {
+                areAllDataValid = false
+                it.error = "تکمیل فیلد اجباری است!"
+            }
+        }
+        binding.EditTextCardNumber.let {
+            if (it.text.isNullOrBlank()) {
+                areAllDataValid = false
+                it.error = "تکمیل فیلد اجباری است!"
+            }
+        }
+        return areAllDataValid
     }
 }

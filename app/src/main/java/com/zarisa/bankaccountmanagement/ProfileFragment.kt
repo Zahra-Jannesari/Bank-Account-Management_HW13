@@ -18,7 +18,7 @@ const val zipCode = "zipCode"
 const val phoneNumber = "phone"
 const val accountNumber="account"
 var numberOfUserAccounts: Int = 0
-var editTime = true
+var editTime = false
 
 class ProfileFragment : Fragment() {
     private val profileSharePref: SharedPreferences by lazy {
