@@ -17,3 +17,10 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 }
+
+//// Get input text
+//val inputText = outlinedTextField.editText?.text.toString()
+//
+//outlinedTextField.editText?.doOnTextChanged { inputText, _, _, _ ->
+//    // Respond to input text change
+//}
