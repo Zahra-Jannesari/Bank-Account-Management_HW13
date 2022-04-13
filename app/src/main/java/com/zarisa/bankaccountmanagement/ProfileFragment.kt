@@ -16,6 +16,7 @@ const val lastName = "lastname"
 const val father = "fatherName"
 const val zipCode = "zipCode"
 const val phoneNumber = "phone"
+const val accountNumber="account"
 var numberOfUserAccounts: Int = 0
 var editTime = true
 
@@ -77,6 +78,7 @@ class ProfileFragment : Fragment() {
         editor.putString(father, binding.EditTextUserFatherName.text.toString())
         editor.putString(zipCode, binding.EditTextUserZipCode.text.toString())
         editor.putString(phoneNumber, binding.EditTextUserPhoneNumber.text.toString())
+        editor.putString(accountNumber,binding.EditTextUserAccountNumber.text.toString())
         editor?.apply()
         numberOfUserAccounts = binding.EditTextUserAccountNumber.text.toString().toInt()
     }
@@ -141,7 +143,6 @@ class ProfileFragment : Fragment() {
         binding.EditTextUserFatherName.setText(profileSharePref.getString(father,""))
         binding.EditTextUserZipCode.setText(profileSharePref.getString(zipCode,""))
         binding.EditTextUserPhoneNumber.setText(profileSharePref.getString(phoneNumber,""))
-        if(numberOfUserAccounts>0)
-            binding.EditTextUserAccountNumber.setText(numberOfUserAccounts.toString())
+        binding.EditTextUserAccountNumber.setText(profileSharePref.getString(accountNumber,""))
     }
 }
