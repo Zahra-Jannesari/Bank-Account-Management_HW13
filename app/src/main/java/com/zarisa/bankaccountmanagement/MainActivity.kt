@@ -2,7 +2,9 @@ package com.zarisa.bankaccountmanagement
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
@@ -12,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
+//    private val viewModel: SharedViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 //            when (it.itemId) {
 //                R.id.deleteAllAccounts -> {
 //
+//
 //                    true
 //                }
 //            }
@@ -44,11 +47,6 @@ class MainActivity : AppCompatActivity() {
 //            true
 //        }
     }
-// I will enable menu if i needed
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        menuInflater.inflate(R.menu.drawer_menu, menu)
-//        return true
-//    }
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.fragmentContainerView)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

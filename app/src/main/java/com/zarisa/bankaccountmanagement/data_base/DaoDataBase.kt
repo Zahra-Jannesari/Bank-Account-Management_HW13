@@ -18,5 +18,7 @@ interface AccountDao {
 
     @Delete
     fun delete(userAccount: UserAccount)
+    @Delete
+    fun deleteAll(userAccounts: List<UserAccount>?)
 
 }

@@ -28,4 +28,7 @@ object Repository {
     fun findSpecificAccount(cardNumber:Int):LiveData<UserAccount>?{
         return db?.accountDao()?.getAccount(cardNumber)
     }
+    fun deleteAllAccounts(){
+        AccountDao?.deleteAll(db!!.accountDao().getAll().value)
+    }
 }

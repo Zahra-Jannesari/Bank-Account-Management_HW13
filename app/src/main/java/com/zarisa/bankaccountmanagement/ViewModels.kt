@@ -77,4 +77,7 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
         chosenAccountType.value=chosenAccount?.value?.type
         chosenAccountCredit.value=chosenAccount?.value?.credit
     }
+    fun deleteAllAccounts(){
+        Repository.deleteAllAccounts()
+    }
 }
