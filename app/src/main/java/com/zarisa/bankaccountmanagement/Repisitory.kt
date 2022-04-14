@@ -1,6 +1,8 @@
 package com.zarisa.bankaccountmanagement
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.zarisa.bankaccountmanagement.data_base.UserAccount
 import com.zarisa.bankaccountmanagement.data_base.AccountDao
 import com.zarisa.bankaccountmanagement.data_base.AppDatabase
@@ -16,7 +18,7 @@ object Repository {
 
     }
 
-    fun getAccounts() : List<UserAccount>{
+    fun getAccounts() : LiveData<List<UserAccount>> {
         return db!!.accountDao().getAll()
     }
     fun insertAccount(account: UserAccount){

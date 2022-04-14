@@ -3,13 +3,14 @@ package com.zarisa.bankaccountmanagement
 import android.accounts.Account
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.zarisa.bankaccountmanagement.data_base.UserAccount
 
 class SharedViewModel(app: Application) : AndroidViewModel(app) {
     var numberOfUserAccounts: Int? = 0
     var numberOfCurrentAccount = MutableLiveData(1)
-    var accountsList: List<UserAccount>
+    var accountsList: LiveData<List<UserAccount>>
     val currentAccountType = MutableLiveData<String>()
     val currentAccountCardNumber = MutableLiveData<Int>()
     val currentAccountCredit = MutableLiveData<Int>()
@@ -22,14 +23,12 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
     init {
         Repository.initDB(app.applicationContext)
         accountsList = Repository.getAccounts()
-
         setPrimaryData()
     }
-
     private fun setPrimaryData() {
-        currentAccountType.value = accountsList[0].type
-        currentAccountCardNumber.value = accountsList[0].cardNumber
-        currentAccountCredit.value = accountsList[0].credit
+        currentAccountType.value = accountsList.value?.get(0)?.type
+        currentAccountCardNumber.value = accountsList.value?.get(0)?.cardNumber
+        currentAccountCredit.value = accountsList.value?.get(0)?.credit
         if (numberOfUserAccounts!! > 1)
             isNextAvailable.value = true
     }
@@ -55,9 +54,9 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     private fun updateData(number: Int) {
-        currentAccountType.value = accountsList[number].type
-        currentAccountCardNumber.value = accountsList[number].cardNumber
-        currentAccountCredit.value = accountsList[number].credit
+        currentAccountType.value = accountsList.value?.get(number)?.type
+        currentAccountCardNumber.value = accountsList.value?.get(number)?.cardNumber
+        currentAccountCredit.value = accountsList.value?.get(number)?.credit
     }
 
     fun prevAccount() {

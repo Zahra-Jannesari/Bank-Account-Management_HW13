@@ -1,11 +1,13 @@
 package com.zarisa.bankaccountmanagement.data_base
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 
 @Dao
 interface AccountDao {
     @Query("SELECT * FROM UserAccount")
-    fun getAll(): List<UserAccount>
+    fun getAll(): LiveData<List<UserAccount>>
     @Query("SELECT * FROM UserAccount where cardNumber=:cardNumber")
     fun getAccount(cardNumber: Int): UserAccount
 
