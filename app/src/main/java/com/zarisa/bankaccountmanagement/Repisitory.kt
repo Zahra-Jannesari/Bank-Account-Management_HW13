@@ -1,5 +1,6 @@
 package com.zarisa.bankaccountmanagement
 
+import android.accounts.Account
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -23,5 +24,8 @@ object Repository {
     }
     fun insertAccount(account: UserAccount){
         AccountDao?.insert(account)
+    }
+    fun findSpecificAccount(cardNumber:Int):LiveData<UserAccount>?{
+        return db?.accountDao()?.getAccount(cardNumber)
     }
 }

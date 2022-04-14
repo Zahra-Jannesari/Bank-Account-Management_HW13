@@ -1,6 +1,5 @@
 package com.zarisa.bankaccountmanagement
 
-import android.accounts.Account
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -15,10 +14,12 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
     val currentAccountCardNumber = MutableLiveData<Int>()
     val currentAccountCredit = MutableLiveData<Int>()
 
+    var chosenAccountType=MutableLiveData<String>()
+    var chosenAccountCredit=MutableLiveData<Int>()
+
     val isNextAvailable = MutableLiveData(false)
     val isPrevAvailable = MutableLiveData(false)
 
-    var question = MutableLiveData<UserAccount>()
 
     init {
         Repository.initDB(app.applicationContext)
@@ -33,13 +34,6 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
             isNextAvailable.value = true
     }
 
-//    fun nextQuestion() {
-//        // check if (question nu,ber is in range)
-//        number.value = number.value?.plus(1)
-//        number.value?.let{ number ->
-//            question.value = questionList[number]
-//        }
-//    }
 
     fun addAccount(cardNumber: Int, accountType: String, credit: Int) {
         Repository.insertAccount(UserAccount(cardNumber, accountType, credit))
@@ -77,5 +71,10 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
             1 -> false
             else -> true
         }
+    }
+    fun getAccountInfo(cardNumber:Int){
+        var chosenAccount=Repository.findSpecificAccount(cardNumber)
+        chosenAccountType.value=chosenAccount?.value?.type
+        chosenAccountCredit.value=chosenAccount?.value?.credit
     }
 }

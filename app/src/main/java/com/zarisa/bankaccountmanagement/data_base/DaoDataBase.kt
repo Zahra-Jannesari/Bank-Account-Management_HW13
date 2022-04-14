@@ -9,7 +9,7 @@ interface AccountDao {
     @Query("SELECT * FROM UserAccount")
     fun getAll(): LiveData<List<UserAccount>>
     @Query("SELECT * FROM UserAccount where cardNumber=:cardNumber")
-    fun getAccount(cardNumber: Int): UserAccount
+    fun getAccount(cardNumber: Int): LiveData<UserAccount>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg userAccount: UserAccount)
