@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.zarisa.bankaccountmanagement.databinding.FragmentViewProfileBinding
 
 
-class ViewProfileFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     lateinit var binding: FragmentViewProfileBinding
     private val profileSharePref: SharedPreferences by lazy {
@@ -35,14 +35,18 @@ class ViewProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        choseCorrectFragment()
         initViews()
     }
-
+    private fun choseCorrectFragment() {
+        if (profileSharePref.getString(userName, "") == "")
+            findNavController().navigate(R.id.action_profileFragment_to_changeProfileFragment)
+        else return
+    }
     private fun initViews() {
         putData()
         binding.editButton.setOnClickListener {
-            editTime=true
-            findNavController().navigate(R.id.action_viewProfileFragment_to_profileFragment)
+            findNavController().navigate(R.id.action_profileFragment_to_changeProfileFragment)
         }
     }
 

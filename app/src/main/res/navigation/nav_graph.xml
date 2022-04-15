@@ -6,13 +6,13 @@
     app:startDestination="@id/profileFragment">
 
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.zarisa.bankaccountmanagement.ProfileFragment"
+        android:id="@+id/changeProfileFragment"
+        android:name="com.zarisa.bankaccountmanagement.ChangeProfileFragment"
         android:label="Arrange Profile"
         tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_profileFragment_to_viewProfileFragment"
-            app:destination="@id/viewProfileFragment" />
+            android:id="@+id/action_changeProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -30,12 +30,21 @@
         android:label="Select Account"
         tools:layout="@layout/fragment_select_account" />
     <fragment
-        android:id="@+id/viewProfileFragment"
-        android:name="com.zarisa.bankaccountmanagement.ViewProfileFragment"
+        android:id="@+id/profileFragment"
+        android:name="com.zarisa.bankaccountmanagement.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_view_profile" >
         <action
-            android:id="@+id/action_viewProfileFragment_to_profileFragment"
+            android:id="@+id/action_profileFragment_to_changeProfileFragment"
+            app:destination="@id/changeProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteAllAccounts"
+        android:name="com.zarisa.bankaccountmanagement.DeleteAllAccountsFragment"
+        android:label="delete all accounts"
+        tools:layout="@layout/fragment_delete_all_accounts" >
+        <action
+            android:id="@+id/action_deleteAllAccountsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

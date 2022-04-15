@@ -18,9 +18,8 @@ const val zipCode = "zipCode"
 const val phoneNumber = "phone"
 const val accountNumber="account"
 
-var editTime = false
 
-class ProfileFragment : Fragment() {
+class ChangeProfileFragment : Fragment() {
     private val profileSharePref: SharedPreferences by lazy {
         requireActivity().getSharedPreferences(
             "user Information",
@@ -32,15 +31,8 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        choseCorrectFragment()
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         return binding.root
-    }
-
-    private fun choseCorrectFragment() {
-        if (profileSharePref.getString(userName, "") != "" && !editTime)
-            findNavController().navigate(R.id.action_profileFragment_to_viewProfileFragment)
-        else return
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,9 +52,8 @@ class ProfileFragment : Fragment() {
 
     private fun saveEditTextsData() {
         if (validateData()) {
-            editTime = false
             saveData()
-            findNavController().navigate(R.id.action_profileFragment_to_viewProfileFragment)
+            findNavController().navigate(R.id.action_changeProfileFragment_to_profileFragment)
         } else
             Toast.makeText(
                 requireContext(),
