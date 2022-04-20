@@ -1,6 +1,8 @@
 package com.zarisa.bankaccountmanagement
 
 import android.app.Application
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -20,6 +22,10 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
     val isNextAvailable = MutableLiveData(false)
     val isPrevAvailable = MutableLiveData(false)
 
+    fun updateList(){
+        accountsList = Repository.getAccounts()
+        setPrimaryData()
+    }
 
     init {
         Repository.initDB(app.applicationContext)
