@@ -1,4 +1,4 @@
-package com.zarisa.bankaccountmanagement
+package com.zarisa.bankaccountmanagement.account.manage
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -7,12 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewManager
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
-import com.zarisa.bankaccountmanagement.data_base.UserAccount
 import com.zarisa.bankaccountmanagement.databinding.FragmentCreateAccountBinding
+import com.zarisa.bankaccountmanagement.model.SharedViewModel
+import com.zarisa.bankaccountmanagement.profile.accountNumber
 
 
 class CreateAccountFragment : Fragment() {

@@ -1,8 +1,6 @@
-package com.zarisa.bankaccountmanagement
+package com.zarisa.bankaccountmanagement.model
 
 import android.app.Application
-import android.content.ContentValues.TAG
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -79,7 +77,7 @@ class SharedViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
     fun getAccountInfo(cardNumber:Int){
-        var chosenAccount=Repository.findSpecificAccount(cardNumber)
+        var chosenAccount= Repository.findSpecificAccount(cardNumber)
         chosenAccountType.value=chosenAccount?.value?.type
         chosenAccountCredit.value=chosenAccount?.value?.credit
     }

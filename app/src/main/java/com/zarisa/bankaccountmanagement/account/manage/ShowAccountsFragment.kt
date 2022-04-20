@@ -1,4 +1,4 @@
-package com.zarisa.bankaccountmanagement
+package com.zarisa.bankaccountmanagement.account.manage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.zarisa.bankaccountmanagement.databinding.FragmentShowAccountsBinding
+import com.zarisa.bankaccountmanagement.model.SharedViewModel
 
 
 class ShowAccountsFragment : Fragment() {

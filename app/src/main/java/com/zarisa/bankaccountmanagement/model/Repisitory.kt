@@ -1,9 +1,7 @@
-package com.zarisa.bankaccountmanagement
+package com.zarisa.bankaccountmanagement.model
 
-import android.accounts.Account
 import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.zarisa.bankaccountmanagement.data_base.UserAccount
 import com.zarisa.bankaccountmanagement.data_base.AccountDao
 import com.zarisa.bankaccountmanagement.data_base.AppDatabase

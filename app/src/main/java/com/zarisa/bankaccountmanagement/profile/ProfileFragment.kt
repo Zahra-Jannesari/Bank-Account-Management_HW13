@@ -1,4 +1,4 @@
-package com.zarisa.bankaccountmanagement
+package com.zarisa.bankaccountmanagement.profile
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.zarisa.bankaccountmanagement.R
 import com.zarisa.bankaccountmanagement.databinding.FragmentProfileBinding
 
 const val userName = "name"
