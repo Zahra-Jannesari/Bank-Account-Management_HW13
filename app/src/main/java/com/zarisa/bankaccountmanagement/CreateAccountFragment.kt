@@ -49,15 +49,19 @@ class CreateAccountFragment : Fragment() {
                 binding.EditTextAccountType.text.toString(),
                 binding.EditTextCredit.text.toString().toInt()
             )
+            binding.EditTextCardNumber.setText("")
+            binding.EditTextAccountType.setText("")
+            binding.EditTextCredit.setText("")
             if (remainedAccount == 0) {
                 binding.buttonSaveChange.isEnabled = false
                 return
             }
             i++
+
         } else
             Toast.makeText(
                 requireContext(),
-                "لطفا تمامی اطلاعات را بطور صحیح تکمیل کنید.",
+                "لطفا تمامی اطلاعات را تکمیل کنید.",
                 Toast.LENGTH_SHORT
             ).show()
     }
