@@ -9,26 +9,23 @@ import com.zarisa.bankaccountmanagement.data_base.AccountDao
 import com.zarisa.bankaccountmanagement.data_base.AppDatabase
 
 object Repository {
-    var db : AppDatabase? = null
-    var AccountDao  : AccountDao? = null
-
+    lateinit var accountDao  : AccountDao
     fun initDB(context : Context){
-        db = AppDatabase.getAppDataBase(context)
-
-        AccountDao = db?.accountDao()
-
+        accountDao = AppDatabase.getAppDataBase(context).accountDao()
     }
-
     fun getAccounts() : LiveData<List<UserAccount>> {
-        return db!!.accountDao().getAll()
+        return accountDao.getAll()
     }
     fun insertAccount(account: UserAccount){
-        AccountDao?.insert(account)
+        accountDao.insertAll(account)
     }
-    fun findSpecificAccount(cardNumber:Int):LiveData<UserAccount>?{
-        return db?.accountDao()?.getAccount(cardNumber)
+    fun findSpecificAccount(cardNumber:Int):LiveData<UserAccount>{
+        return accountDao.getAccount(cardNumber)
     }
     fun deleteAllAccounts(){
-        AccountDao?.deleteAll(db!!.accountDao().getAll().value)
+        accountDao.deleteAll(accountDao.getAll().value)
+    }
+    fun countOfAccounts():LiveData<Int>{
+        return accountDao.countOfAccounts()
     }
 }
