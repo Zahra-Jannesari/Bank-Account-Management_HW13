@@ -13,19 +13,22 @@ abstract class AppDatabase : RoomDatabase() {
         var INSTANCE: AppDatabase? = null
 
         fun getAppDataBase(context: Context): AppDatabase? {
-            if (INSTANCE == null){
-                synchronized(AppDatabase::class){
-                    INSTANCE =
-                        Room.databaseBuilder(context.applicationContext,
-                            AppDatabase::class.java, "myDB")
-                            .allowMainThreadQueries()
-                            .build()
-                }
+            val _Instance = INSTANCE
+            if (_Instance != null)
+                return _Instance
+            synchronized(AppDatabase::class) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java, "myDB"
+                )
+                    .allowMainThreadQueries()
+                    .build()
+                INSTANCE = instance
+                return instance
             }
-            return INSTANCE
         }
 
-        fun destroyDataBase(){
+        fun destroyDataBase() {
             INSTANCE = null
         }
     }
