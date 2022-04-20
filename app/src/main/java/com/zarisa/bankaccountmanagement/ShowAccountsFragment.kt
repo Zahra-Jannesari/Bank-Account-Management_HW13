@@ -22,6 +22,7 @@ class ShowAccountsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.updateList()
         setObservers()
         onClicks()
     }
@@ -33,18 +34,23 @@ class ShowAccountsFragment : Fragment() {
 
     private fun setObservers() {
         viewModel.currentAccountCardNumber.observe(viewLifecycleOwner){
+            if(it!=null)
             binding.EditTextCardNumber.setText(it.toString())
         }
         viewModel.currentAccountCredit.observe(viewLifecycleOwner){
+            if(it!=null)
             binding.EditTextCredit.setText(it.toString())
         }
         viewModel.currentAccountType.observe(viewLifecycleOwner){
+            if(it!=null)
             binding.EditTextAccountType.setText(it.toString())
         }
         viewModel.isNextAvailable.observe(viewLifecycleOwner){
+            if(it!=null)
             binding.buttonNext.isEnabled=it
         }
         viewModel.isPrevAvailable.observe(viewLifecycleOwner){
+            if(it!=null)
             binding.buttonPrev.isEnabled=it
         }
     }
