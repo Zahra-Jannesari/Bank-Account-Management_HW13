@@ -8,13 +8,13 @@ import androidx.room.*
 interface AccountDao {
     @Query("SELECT * FROM UserAccount")
     fun getAll(): LiveData<List<UserAccount>>
-    @Query("SELECT * FROM UserAccount where cardNumber=:cardNumber")
-    fun getAccount(cardNumber: Int): LiveData<UserAccount>
+    @Query("SELECT * FROM UserAccount where cardNumber IN (:cNumber)")
+    fun getAccount(cNumber: Int): LiveData<UserAccount>
+    @Query("Select count(*) From UserAccount")
+    fun countOfAccounts():LiveData<Int>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg userAccount: UserAccount)
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(userAccount: UserAccount)
 
     @Delete
     fun delete(userAccount: UserAccount)
